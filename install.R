@@ -24,7 +24,7 @@
 ## Adapted from https://github.com/siemens/codeface/blob/be382e9171fb91b4aa99b99b09b2ef64a6dba0d5/packages.r
 ## to our needs.
 
-
+print(getOption("repos"))
 packages = c(
     "yaml",
     "R6",
@@ -62,7 +62,7 @@ if (length(p) > 0) {
     print(sprintf("Installing package '%s'.", p))
 
     ## set dependencies to 'NA' to install only necessary dependencies (i.e., "Depends", "Imports", "LinkingTo")
-    install.packages(p, dependencies = NA, verbose = TRUE, quiet = TRUE)
+    install.packages(p, dependencies = NA, verbose = TRUE, quiet = FALSE)
 
     igraph.version = installed.packages()[rownames(installed.packages()) == "igraph", "Version"]
     if (compareVersion(igraph.version, "1.2.7") == -1) {
